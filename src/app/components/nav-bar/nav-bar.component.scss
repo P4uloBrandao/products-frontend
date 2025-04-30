@@ -1,0 +1,70 @@
+.nav-bar-container {
+  width: 100%;
+
+  .items-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 32px;
+
+    .active {
+      color: var(--primary-color) !important;
+      font-weight: bold;
+    }
+
+    svg {
+      cursor: pointer;
+    }
+
+    .links-container {
+      display: flex;
+      gap: 32px;
+      a {
+        color: black;
+        font-size: 16px;
+        text-decoration: none;
+
+        &:hover {
+          transform: scale(1.1);
+          transition: all 0.3s;
+        }
+      }
+    }
+
+    .auth-container {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+
+      .name-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        p {
+          font-size: 1.5rem;
+          font-weight: bold;
+          margin: 0;
+        }
+
+
+      }
+
+      a {
+        font-size: 1rem;
+        cursor: pointer;
+        color: black;
+        text-decoration: none;
+        &.logout {
+          color: darkred;
+
+        }
+
+        &:hover {
+          transform: scale(1.1);
+          transition: all 0.3s;
+        }
+      }
+    }
+  }
+}

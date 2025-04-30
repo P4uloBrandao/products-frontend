@@ -1,0 +1,14 @@
+<div class="confirmation-modal-title">{{ title }}</div>
+<div class="confirmation-modal-body">{{ reason }}</div>
+<div class="confirmation-modal-bottom">
+  <div class="confirmation-modal-button-wrapper">
+    <button class="flat cancel-btn" mat-button (click)="cancel()">
+      {{ closeBtn }}
+    </button>
+    @if(!hideBtn) {
+      <button mat-button class="confirm-btn" (click)="confirm()" [ngClass]="actionBtnClass">
+        {{ actionBtn }}
+      </button>
+    }
+  </div>
+</div>

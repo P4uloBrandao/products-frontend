@@ -1,0 +1,41 @@
+<div class="nav-bar-container">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 items-container">
+        <svg width="220" height="60" viewBox="0 0 220 60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" (click)="goToRoute('home')">
+          <!-- Ícone da caixa -->
+          <rect x="10" y="10" width="40" height="40" rx="5" ry="5" fill="#4CAF50" />
+          <polyline points="10,10 30,0 50,10" fill="none" stroke="#ffffff" stroke-width="4" />
+          <polyline points="10,50 30,40 50,50" fill="none" stroke="#ffffff" stroke-width="4" />
+
+          <!-- Texto da Logo -->
+          <text x="65" y="35" font-family="Arial, sans-serif" font-size="24" fill="#333" font-weight="bold">Products</text>
+          <text x="170" y="35" font-family="Arial, sans-serif" font-size="24" fill="#4CAF50" font-weight="bold">API</text>
+        </svg>
+        @if (!auth) {
+
+          <div class="links-container">
+            <a routerLink="login" routerLinkActive="active">Login</a>
+            <a routerLink="register" routerLinkActive="active">Register</a>
+          </div>
+        } @else {
+
+          <div class="auth-container">
+            <div class="name-container">
+              @if (isAdmin()) {
+                <mat-icon [matTooltip]="'You are an admin'">admin_panel_settings</mat-icon>
+              }
+              <p>Hi, {{getUserName()}}</p>
+            </div>
+            <a class="logout" (click)="logout()">Logout</a>
+            <a routerLink="products" routerLinkActive="active">Products</a>
+            @if (isAdmin()) {
+              <a routerLink="product" routerLinkActive="active">Add product</a>
+            }
+          </div>
+
+        }
+      </div>
+    </div>
+  </div>
+</div>
