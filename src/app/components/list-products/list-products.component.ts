@@ -5,12 +5,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {MatButton} from "@angular/material/button";
 import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
-import {productActions} from "../../state/product/product.actions";
-import {productSelector, productStatusSelector} from "../../state/product/product.selector";
 import {AsyncPipe} from "@angular/common";
-import {Observable} from "rxjs";
-import {ProductState, ProductStatus} from "../../state/product/product.reducer";
-import {ProductModel} from "../../models/products.models";
 import {ConfirmationModalComponent} from "../shared/confirmation-modal/confirmation-modal.component";
 
 @Component({
@@ -31,16 +26,12 @@ export class ListProductsComponent implements OnInit{
 
   protected readonly UserRole = UserRole;
 
-  public productsList : Observable<ProductModel[]>= this.store.select(productSelector);
-  public productListStatus: Observable<ProductStatus> = this.store.select(productStatusSelector);
-
   public user?: User;
 
   ngOnInit(){
 
     this.user = this.authService.getAuth();
 
-    this.store.dispatch(productActions.getProducts());
   }
 
   deleteProduct(idProduct: string): void {
@@ -50,7 +41,6 @@ export class ListProductsComponent implements OnInit{
 
     dialog.afterClosed().subscribe(result => {
       if(result){
-        this.store.dispatch(productActions.deleteProduct({idProduct}));
       }
     });
   }

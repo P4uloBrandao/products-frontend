@@ -5,24 +5,25 @@
         <div class="list-products-wrapper">
           <div class="container-fluid">
             <div class="row">
-              @for (product of productsList | async; track product.idProduct) {
-                <div class="col-4">
-                  <div class="img-container">
-                    <img src="assets/product.png" alt="">
-                  </div>
-                  <div class="info-container">
-                    <h1>{{ product.name }}</h1>
-                    <p>Price: {{product.value}}€</p>
-                  </div>
-                  @if (user?.roleUser === UserRole.ADMIN) {
-                    <div class="actions-container">
-                      <button mat-button (click)="editProduct(product.idProduct)">Edit</button>
-                      <button mat-button (click)="deleteProduct(product.idProduct)">Remove</button>
-                    </div>
-                  }
-                </div>
+<!--              @for (product of productsList | async; track product.idProduct) {-->
+<!--                <div class="col-4">-->
+<!--                  <div class="img-container">-->
+<!--                    <img src="assets/product.png" alt="">-->
+<!--                  </div>-->
+<!--                  <div class="info-container">-->
+<!--                    <h1>{{ product.name }}</h1>-->
+<!--                    <p>Price: {{product.value}}€</p>-->
+<!--                  </div>-->
+<!--                  @if (user?.roleUser === UserRole.ADMIN) {-->
+<!--                    <div class="actions-container">-->
+<!--                      <button mat-button (click)="editProduct(product.idProduct)">Edit</button>-->
+<!--                      <button mat-button (click)="deleteProduct(product.idProduct)">Remove</button>-->
+<!--                    </div>-->
+<!--                  }-->
+<!--                </div>-->
 
-              }
+<!--              }-->
+
             </div>
           </div>
         </div>
